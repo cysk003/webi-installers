@@ -24,7 +24,7 @@ if (!(Test-Path -Path "$Env:USERPROFILE\.local\bin\$VERNAME")) {
     Write-Output "Unpacking $Env:USERPROFILE\Downloads\webi\$Env:WEBI_PKG_FILE"
     & tar xf "$Env:USERPROFILE\Downloads\webi\$Env:WEBI_PKG_FILE"
     # Move single binary into root of temporary folder
-    & Move-Item "$EXENAME" "$VERNAME"
+    & Move-Item "$Env:WEBI_PKG_FILE\$EXENAME" "$VERNAME"
 
 
     # Settle unpacked archive into place
