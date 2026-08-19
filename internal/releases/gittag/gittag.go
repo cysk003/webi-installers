@@ -91,7 +91,7 @@ func Fetch(ctx context.Context, gitURL, repoDir string) iter.Seq2[[]Entry, error
 func ensureRepo(ctx context.Context, repoPath, gitURL string) error {
 	if _, err := os.Stat(repoPath); err == nil {
 		// Exists — fetch updates.
-		cmd := exec.CommandContext(ctx, "git", "--git-dir="+repoPath, "fetch")
+		cmd := exec.CommandContext(ctx, "git", "--git-dir="+repoPath, "fetch", "--tags")
 		cmd.Stderr = os.Stderr
 		return cmd.Run()
 	}
