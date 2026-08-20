@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/webinstall/webi-installers/internal/releases/node"
+	"github.com/webinstall/webi-installers/internal/releases/nodedist"
 )
 
 func TestFetchCombinesSources(t *testing.T) {
