@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/webinstall/webi-installers/internal/releases/nodedist"
+	node "github.com/webinstall/webi-installers/internal/releases/node"
 )
 
 func TestFetchCombinesSources(t *testing.T) {
@@ -18,7 +18,7 @@ func TestFetchCombinesSources(t *testing.T) {
 
 	var batches int
 	var total int
-	for entries, err := range nodedist.Fetch(ctx, client) {
+	for entries, err := range node.Fetch(ctx, client) {
 		if err != nil {
 			t.Fatalf("batch %d: %v", batches, err)
 		}
