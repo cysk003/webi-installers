@@ -50,7 +50,7 @@ import (
 	"github.com/webinstall/webi-installers/internal/releases/iterm2dist"
 	"github.com/webinstall/webi-installers/internal/releases/juliadist"
 	"github.com/webinstall/webi-installers/internal/releases/mariadbdist"
-	"github.com/webinstall/webi-installers/internal/releases/nodedist"
+	"github.com/webinstall/webi-installers/internal/releases/nodeindex"
 	"github.com/webinstall/webi-installers/internal/releases/servicemandist"
 	"github.com/webinstall/webi-installers/internal/releases/zigdist"
 	"github.com/webinstall/webi-installers/internal/storage"
@@ -660,7 +660,7 @@ func (wc *WebiCache) fetchNodeDist(ctx context.Context, pkgName string, conf *in
 
 	// Fetch from primary URL. Tag with "official/" prefix so unofficial
 	// entries for the same version don't overwrite.
-	for batch, err := range nodedist.Fetch(ctx, wc.Client, baseURL) {
+	for batch, err := range nodeindex.Fetch(ctx, wc.Client, baseURL) {
 		if err != nil {
 			return err
 		}
@@ -673,7 +673,7 @@ func (wc *WebiCache) fetchNodeDist(ctx context.Context, pkgName string, conf *in
 	// Fetch from unofficial URL if configured (e.g. Node.js unofficial builds
 	// which add musl, riscv64, loong64 targets).
 	if unofficialURL := conf.Extra["unofficial_url"]; unofficialURL != "" {
-		for batch, err := range nodedist.Fetch(ctx, wc.Client, unofficialURL) {
+		for batch, err := range nodeindex.Fetch(ctx, wc.Client, unofficialURL) {
 			if err != nil {
 				log.Printf("warning: %s unofficial fetch: %v", pkgName, err)
 				break

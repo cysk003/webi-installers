@@ -34,7 +34,7 @@ import (
 	"github.com/webinstall/webi-installers/internal/releases/juliadist"
 	lsddist "github.com/webinstall/webi-installers/internal/releases/lsd"
 	"github.com/webinstall/webi-installers/internal/releases/mariadbdist"
-	nodedist "github.com/webinstall/webi-installers/internal/releases/node"
+	"github.com/webinstall/webi-installers/internal/releases/nodedist"
 	ollamadist "github.com/webinstall/webi-installers/internal/releases/ollama"
 	"github.com/webinstall/webi-installers/internal/releases/postgres"
 	pwshdist "github.com/webinstall/webi-installers/internal/releases/pwsh"
